@@ -12,7 +12,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url('bg.jpg');
+    background: linear-gradient(to bottom right, #99FFA5, #25E5FF);
 }
 
 .card-container {
@@ -21,10 +21,11 @@ body {
     justify-content: center;
     align-items: center;
 
-    box-shadow: 2px 5px 17px 4px #78A6C4;
-    background: #f3f3f3;
+    box-shadow: 2px 5px 17px 4px #c5d6e0;
+    background: #f2f2f2;
 
     width: 50vh;
     height: 60vh;
     border-radius: 18px;
+
 }

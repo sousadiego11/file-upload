@@ -1,21 +1,20 @@
 
 const fileInput = document.getElementById('file')
-const form = document.getElementById('form')
+const submit = document.getElementById('submit')
 
-const handleAction = async (e) => {
-    
+const handleAction = (e) => {
     e.preventDefault();
     const reader = new FileReader();
     const file = fileInput.files[0]
     
     reader.readAsDataURL(file);
-    reader.onloadend = (evt) => {
-        fetch('http://localhost:3000', {
+    reader.onloadend = async (evt) => {
+        await fetch('http://localhost:3000', {
             method: 'POST',
             body: evt.target.result
-        }).then(() => {})
+        })
     }
 
 }
 
-form.addEventListener('submit', handleAction)
+submit.addEventListener('click', handleAction)
