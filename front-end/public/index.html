@@ -7,15 +7,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Upload Tests</title>
 </head>
 <body>
     <div class="card-container">
-        <h1>Upload de arquivo</h1>
+        <div class="card-header">
+            <h1>Upload de arquivo</h1>
+            <input type="checkbox" name="theme" >
+        </div>
         <input  type="file" id="file"><br>
         <button id="submit">Enviar</button>
     </div>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="../src/App.js"></script>
 </body>
 </html>
