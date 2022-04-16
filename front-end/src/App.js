@@ -12,13 +12,15 @@ const defaultTheme = {
     bgCard: getStyle(html, '--bg-card'),
     shadowCard: getStyle(html, '--shadow-card'),
     bodyText: getStyle(html, '--body-text'),
+    bgButton: getStyle(html, '--bg-button'),
 }
 
 const darkTheme = {
-    bgGradient: 'linear-gradient(to bottom right, #12062e, #070114)',
-    bgCard: '#5736a3',
-    shadowCard: '2px 5px 17px 4px #5736a3',
-    bodyText: '#070114',
+    bgGradient: 'linear-gradient(to bottom right, #262e3e, #2c3445)',
+    bgCard: '#171a21',
+    shadowCard: '2px 5px 17px 4px #171a21',
+    bodyText: '#fff',
+    bgButton: '#38c8de',
 }
 
 
@@ -30,7 +32,6 @@ const changeColors = (colors) => {
 }
 
 const handleAction = (e) => {
-    console.log("🚀 ~ file: App.js ~ line 45 ~ handleAction ~ e", e)
     e.preventDefault();
     const reader = new FileReader();
     const file = fileInput.files[0]

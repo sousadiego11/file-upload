@@ -11,13 +11,15 @@
     <title>Upload Tests</title>
 </head>
 <body>
-    <div class="card-container">
-        <div class="card-header">
-            <h1>Upload de arquivo</h1>
-            <input type="checkbox" name="theme" >
+    <div class="card-wrapper">
+        <div class="card-container">
+            <div class="card-header">
+                <h1>Upload de arquivo</h1>
+                <input type="checkbox" name="theme" >
+            </div>
+            <input type="file" id="file"><br>
+            <button type="submit" id="submit">Enviar</button>
         </div>
-        <input  type="file" id="file"><br>
-        <button id="submit">Enviar</button>
     </div>
     <script type="module" src="../src/App.js"></script>
 </body>
