@@ -3,7 +3,6 @@ html {
     padding: 0;
     color: var(--body-text);
     
-    
     --bg-gradient: linear-gradient(to bottom right, #99FFA5, #25E5FF);
     --bg-button: #027ad6;
     --bg-card: #f2f2f2;
@@ -51,6 +50,14 @@ body {
     align-items: center;
 }
 
+.file-wrapper, .submit-wrapper {
+    padding: 8px 0;
+}
+
+.file-wrapper:hover, .submit-wrapper:hover {
+    animation: bounce-up 0.3s ease-in-out forwards;
+}
+
 button[type=submit], input[type=file]::file-selector-button {
     border: none;
     padding: 6px 16px; 
@@ -59,8 +66,16 @@ button[type=submit], input[type=file]::file-selector-button {
 	color: var(--button-text);
 	background: var(--bg-button);
 
-    transition: 1s;
     cursor: pointer;
 
+    transition: 1s ease-out;
+    
     font-family: 'Roboto Mono', monospace;
+}
+
+
+@keyframes bounce-up {
+    100% {
+        transform: translateY(-20%);
+    }
 }
