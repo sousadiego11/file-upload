@@ -42,7 +42,10 @@ body {
     border-radius: 18px;
 
     transition: 1s ease-out;
-    
+}
+
+.card-container:hover {
+    transform: scaleY(98%) scaleX(98%);
 }
 
 .card-container > .card-header {
@@ -52,10 +55,11 @@ body {
 
 .file-wrapper, .submit-wrapper {
     padding: 8px 0;
+    transition: transform 0.3s;
 }
 
 .file-wrapper:hover, .submit-wrapper:hover {
-    animation: bounce-up 0.3s ease-in-out forwards;
+    transform: scaleY(90%) scaleX(90%);
 }
 
 button[type=submit], input[type=file]::file-selector-button {
@@ -71,11 +75,4 @@ button[type=submit], input[type=file]::file-selector-button {
     transition: 1s ease-out;
     
     font-family: 'Roboto Mono', monospace;
-}
-
-
-@keyframes bounce-up {
-    100% {
-        transform: translateY(-20%);
-    }
 }
