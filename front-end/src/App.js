@@ -16,7 +16,7 @@ const defaultTheme = {
 }
 
 const darkTheme = {
-    bgGradient: 'linear-gradient(to bottom right, #262e3e, #2c3445)',
+    bgGradient: '#2c3445',
     bgCard: '#171a21',
     shadowCard: '2px 5px 17px 4px #171a21',
     bodyText: '#fff',
