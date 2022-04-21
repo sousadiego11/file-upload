@@ -1,27 +1,40 @@
-const http = require('http')
-const fs = require('fs')
+const {  createServer } = require('http')
+const { writeFile } = require('fs');
+const { promisify } = require('util');
+const writeFilePromised = promisify(writeFile)
 
+const port = 3000
 const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
-  };
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
+};
+const routes = {
+  postImage: (req) => req.url === '/' && req.method === 'POST'
+}
 
-const reqListener = (req, res) => {
-    let imagedata = ''
+const reqListener = async (req, res) => {
+  let imagedata = ''
+  const { postImage } = routes
+  res.writeHead(200, headers);
 
-    res.writeHead(200, headers);
-
+  if (postImage(req)) {
     req.on('data', (chunk) => imagedata += chunk)
     
     req.on('end', async () => {
-      const base64Data = imagedata.replace(/^data:image\/(png|jpeg|jpg);base64,/,"")
-      fs.writeFile('file.png', base64Data, 'base64', (err) => {
-        if (err) throw err
+      try {
+        const prefix = /^data:image\/(png|jpeg|jpg);base64,/.exec(imagedata)[1]
+        const base64Data = imagedata.replace(/^data:image\/(png|jpeg|jpg);base64,/,"")
+
+        await writeFilePromised(`file.${prefix}`, base64Data, 'base64')
+
         console.log('File saved!')
-      })
+      } catch (e) {
+        console.error(e)
+      }
     })
-    
+  }
 }
 
-const server = http.createServer(reqListener)
-server.listen(3000)
+const server = createServer(reqListener)
+
+server.listen(port, () => console.log(`Server is running on port ${port}!`))
